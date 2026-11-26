@@ -1,0 +1,6 @@
+__pycache__/
+out/
+competition.json
+requirements.json
+kit.json
+play-code.json
