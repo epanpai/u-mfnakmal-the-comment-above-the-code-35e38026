@@ -31,6 +31,11 @@ ENTRY = (
 
 def main() -> int:
     text = ENTRY
+    # The entry is a code comment: it must keep its "//" marker,
+    # so a gate that strips comment syntax can never eat the joke.
+    if not text.startswith("//"):
+        print("entry must start with '//' (a code comment)", file=sys.stderr)
+        return 1
     # Gate: UTF-8, 1-200 characters, not only whitespace, one line.
     encoded = text.encode("utf-8")
     if not (1 <= len(text) <= 200):
